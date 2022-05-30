@@ -32,12 +32,8 @@ install -D -m644 config/waydroid-sensord %{buildroot}/usr/local/bin/waydroid-sen
 rm -rf $RPM_BUILD_ROOT
 
 %post
-systemctl daemon-reload
-systemctl-user daemon-reload
-systemctl-user start waydroid-sensors
 chmod +x /usr/local/bin/waydroid-sensord
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/systemd/user/waydroid-sensors.service
 /usr/local/bin/waydroid-sensord
