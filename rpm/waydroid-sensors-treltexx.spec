@@ -25,21 +25,15 @@ Waydroid-sensors-treltexx installs the waydroid-sensord for the Galaxy Note 4 (t
 
 %install
 mkdir -p %{buildroot}/usr/local/bin
-mkdir -p %{buildroot}/usr/lib/systemd/user
 
-install -D -m666 config/waydroid-sensors.service %{buildroot}/usr/lib/systemd/user/waydroid-sensors.service
 install -D -m644 config/waydroid-sensord %{buildroot}/usr/local/bin/waydroid-sensord
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-systemctl daemon-reload
-systemctl-user daemon-reload
-systemctl-user start waydroid-sensors
 chmod +x /usr/local/bin/waydroid-sensord
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/systemd/user/waydroid-sensors.service
 /usr/local/bin/waydroid-sensord
