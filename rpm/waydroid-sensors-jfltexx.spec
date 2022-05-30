@@ -1,15 +1,15 @@
-Name:           waydroid-sensors-treltexx
+Name:           waydroid-sensors-jfltexx
 Version:        1.0.0
 Release:        1
-Summary:        Waydroid-sensors-treltexx installs the waydroid-sensord for the Galaxy Note 4 (treltexx).
+Summary:        Waydroid-sensors-jfltexx installs the waydroid-sensord for the Galaxy S4 (jfltexx).
 License:        GPLv3
-URL:            https://github.com/edp17/waydroid-sensors-treltexx
+URL:            https://github.com/edp17/waydroid-sensors-jfltexx
 BuildArch:      %{arm}
 Source0:        %{name}-%{version}.tar.gz
 
 BuildRequires:  systemd
 Requires:       waydroid
-Requires:       waydroid-treltexx
+Requires:       waydroid-jfltexx
 
 %description
 Waydroid uses Linux namespaces (user, pid, uts, net, mount, ipc) to run a full Android system in a container and provide Android applications on any GNU/Linux-based platform.
@@ -18,16 +18,14 @@ The Android system inside the container has direct access to any needed hardware
 
 The Android runtime environment ships with a minimal customized Android system image based on LineageOS. The image is currently based on Android 10.
 
-Waydroid-sensors-treltexx installs the waydroid-sensord for the Galaxy Note 4 (treltexx).
+Waydroid-sensors-jfltexx installs the waydroid-sensord for the Galaxy S4 (jfltexx).
 
 %prep
 %setup
 
 %install
 mkdir -p %{buildroot}/usr/local/bin
-mkdir -p %{buildroot}/usr/lib/systemd/user
 
-install -D -m666 config/waydroid-sensors.service %{buildroot}/usr/lib/systemd/user/waydroid-sensors.service
 install -D -m644 config/waydroid-sensord %{buildroot}/usr/local/bin/waydroid-sensord
 
 %clean
