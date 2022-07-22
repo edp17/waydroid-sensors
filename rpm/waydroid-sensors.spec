@@ -4,7 +4,6 @@ Release:        1
 Summary:        Waydroid-sensors installs the waydroid-sensord
 License:        GPLv3
 URL:            https://github.com/edp17/waydroid-sensors
-BuildArch:      %{arm}
 Source0:        %{name}-%{version}.tar.gz
 
 BuildRequires:  systemd
